@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2Fm-Ln-ouC">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--New Notebook View Controller-->
+        <scene sceneID="3tK-an-q5Q">
+            <objects>
+                <viewController storyboardIdentifier="NewNotebookViewController" id="dRG-g3-KgB" customClass="NewNotebookViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pm8-IA-3Gt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="Rjn-bk-DOk" userLabel="Adjust Bar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uLf-l6-NXB">
+                                        <rect key="frame" x="230" y="20" width="80" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.92941176469999998" green="0.90196078430000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeBtnTapped:" destination="dRG-g3-KgB" eventType="touchUpInside" id="lKw-q4-h02"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar_logo" id="AJG-ZM-JYf">
+                                        <rect key="frame" x="146" y="24" width="28" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.20392156859999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of your notebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vHR-7M-Kma">
+                                <rect key="frame" x="10" y="72" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="16"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.90196078430000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_bg" id="3IQ-ab-XfE">
+                                <rect key="frame" x="10" y="110" width="300" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" id="uPV-ir-Zd7">
+                                <rect key="frame" x="10" y="110" width="300" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.90196078430000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Lw7-Zb-ZkV">
+                                <rect key="frame" x="10" y="180" width="300" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                <inset key="titleEdgeInsets" minX="-10" minY="50" maxX="39" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="20"/>
+                                <state key="normal" title="SAVE" image="btn_save" backgroundImage="btn_add_notes_bg">
+                                    <color key="titleColor" red="0.92941176469999998" green="0.90196078430000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="SAVE" image="btn_save_hover" backgroundImage="btn_add_notes_bg_hover">
+                                    <color key="titleColor" red="0.88235294119999996" green="0.35686274509999999" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneBtnTapped:" destination="dRG-g3-KgB" eventType="touchUpInside" id="oaJ-zQ-CA5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.1764705882" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="notebookNameTxt" destination="uPV-ir-Zd7" id="pu9-LB-5TV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5fp-o6-1kF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-222" y="-430"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="sxq-P4-4zH">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="2w1-bG-cBb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCl-J5-QEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="-430"/>
+        </scene>
+        <!--Page Content View Controller-->
+        <scene sceneID="Z3u-TE-tpR">
+            <objects>
+                <viewController id="PyZ-bh-R6p" customClass="PageContentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="71J-8H-4M9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="yoO-os-QA2">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Qz-vZ-95D">
+                                <rect key="frame" x="258" y="527" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="yoO-os-QA2" id="I35-MH-YSu"/>
+                        <outlet property="titleLabel" destination="0Qz-vZ-95D" id="NVC-sB-M9x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGP-8H-Jyl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="618" y="-430"/>
+        </scene>
+        <!--Pages View Controller-->
+        <scene sceneID="mqE-0h-CWM">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fIS-A8-emm" customClass="PagesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5dd-Rv-2cx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="C7J-yo-YPj">
+                                <rect key="frame" x="0.0" y="65" width="320" height="380"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zCo-7p-wg2">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pageCollectionCell" id="fEG-4c-puB" customClass="PageCollectionViewCell">
+                                        <rect key="frame" x="5" y="5" width="150" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="UE0-og-Xph">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="pageImageView" destination="UE0-og-Xph" id="z2Y-tp-ZL5"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="fIS-A8-emm" id="O9L-YH-F6g"/>
+                                    <outlet property="delegate" destination="fIS-A8-emm" id="IM4-1H-STl"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bbV-92-rxr">
+                                <rect key="frame" x="143" y="485" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Scan"/>
+                                <connections>
+                                    <segue destination="be9-hb-VFm" kind="modal" identifier="presentCamerView" id="5st-Hj-twc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="W04-3r-VOh"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="C7J-yo-YPj" id="zcH-dh-iX2"/>
+                        <segue destination="2w1-bG-cBb" kind="modal" identifier="presentPageThumbView" id="WQq-JD-j3O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pCC-Kp-893" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="228"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fef-qg-el2">
+            <objects>
+                <navigationController id="2Fm-Ln-ouC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ilc-ei-Tox">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ae5-cx-Z8i" kind="relationship" relationship="rootViewController" id="Q1y-RF-fVB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pXu-k7-IAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-585.60000000000002" y="228.14666666666668"/>
+        </scene>
+        <!--Notebooks View Controller-->
+        <scene sceneID="DD9-aI-Dta">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ae5-cx-Z8i" customClass="NotebooksViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hkD-km-Mdr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mEq-VS-OI3">
+                                <rect key="frame" x="0.0" y="64" width="320" height="424"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.34901960784313724" green="0.52549019607843139" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="notebookTableViewCell" id="TVC-13-ghn" customClass="NotebookTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TVC-13-ghn" id="LqV-Q4-HpJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="IRf-Ue-ChC">
+                                                    <rect key="frame" x="15" y="16" width="4" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.98431372549999996" green="0.0" blue="0.34901960780000002" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dir-3B-vdn">
+                                                    <rect key="frame" x="25" y="22" width="286" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="16"/>
+                                                    <color key="textColor" red="0.92941176470588238" green="0.90196078431372551" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="colorView" destination="IRf-Ue-ChC" id="wwp-1V-UKL"/>
+                                            <outlet property="notebookNameLbl" destination="dir-3B-vdn" id="g2M-xa-4rv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ae5-cx-Z8i" id="fi6-ci-GGL"/>
+                                    <outlet property="delegate" destination="ae5-cx-Z8i" id="raA-bl-H13"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2pI-BK-6SA">
+                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.36470588240000001" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="40" maxX="40" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="125" minY="8" maxX="25" maxY="35"/>
+                                <state key="normal" title="ADD NOTE" image="btn_add_notes" backgroundImage="btn_add_notes_bg">
+                                    <color key="titleColor" red="0.88235294117647056" green="0.81176470588235294" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="ADD NOTE" image="btn_add_notes_hover" backgroundImage="btn_add_notes_bg_hover">
+                                    <color key="titleColor" red="0.8784313725490196" green="0.35686274509803922" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addBtnTapped:" destination="ae5-cx-Z8i" eventType="touchUpInside" id="Uoy-dR-sw0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.1764705882352941" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="r9h-Ba-J5Q"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="568"/>
+                    <connections>
+                        <outlet property="tableView" destination="mEq-VS-OI3" id="gJb-QA-VEx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QeC-EP-4a3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-205" y="228"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="5t4-OK-gWN">
+            <objects>
+                <viewController storyboardIdentifier="CameraViewController" id="be9-hb-VFm" customClass="CameraViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rvg-GG-RJs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="Svp-jx-SS3" customClass="IPDFCameraViewController">
+                                <rect key="frame" x="0.0" y="64" width="320" height="424"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cJ2-lv-BQn">
+                                        <rect key="frame" x="127" y="346" width="66" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <state key="normal" image="btn_capture">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="btn_capture_hover"/>
+                                        <connections>
+                                            <action selector="captureButton:" destination="be9-hb-VFm" eventType="touchUpInside" id="Gat-gi-Iaq"/>
+                                        </connections>
+                                    </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="focus_indicator" id="yVg-BW-eJ1">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="scaleToFill" id="U0I-Ke-xSS" userLabel="Adjust Bar">
+                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VvR-ce-x0f">
+                                        <rect key="frame" x="220" y="0.0" width="100" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="-30" minY="50" maxX="8" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="32" minY="0.0" maxX="-5" maxY="24"/>
+                                        <state key="normal" title="REFINE" image="btn_camera_refine" backgroundImage="btn_add_notes_bg">
+                                            <color key="titleColor" red="0.87843137250000003" green="0.80784313730000001" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" title="REFINE" image="btn_camera_refine_hover" backgroundImage="btn_add_notes_bg">
+                                            <color key="titleColor" red="0.53333333329999999" green="0.90980392160000001" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted" title="REFINE" image="btn_camera_refine_hover" backgroundImage="btn_add_notes_bg_hover">
+                                            <color key="titleColor" red="0.53333333333333333" green="0.90980392156862744" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="borderDetectToggle:" destination="be9-hb-VFm" eventType="touchUpInside" id="VA0-mO-sk5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lQs-zr-zyx">
+                                        <rect key="frame" x="120" y="0.0" width="100" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="-30" minY="50" maxX="10" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="20"/>
+                                        <state key="normal" title="FILTER" image="btn_camera_origin" backgroundImage="btn_add_notes_bg">
+                                            <color key="titleColor" red="0.87843137250000003" green="0.80784313730000001" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" title="FILTER" image="btn_camera_origin_hover" backgroundImage="btn_add_notes_bg_hover">
+                                            <color key="titleColor" red="0.88235294117647056" green="0.35686274509803922" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="filterToggle:" destination="be9-hb-VFm" eventType="touchUpInside" id="aIU-k2-kVF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CNc-Ds-U2d">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="50" maxX="30" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="44" minY="0.0" maxX="0.0" maxY="24"/>
+                                        <state key="normal" title="FLASH" image="btn_camera_flash" backgroundImage="btn_add_notes_bg">
+                                            <color key="titleColor" red="0.8784313725490196" green="0.80784313725490198" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" title="FLASH" image="btn_camera_flash_hover" backgroundImage="btn_add_notes_bg">
+                                            <color key="titleColor" red="0.94901960780000005" green="0.88235294119999996" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted" title="FLASH" image="btn_camera_flash_hover" backgroundImage="btn_add_notes_bg_hover">
+                                            <color key="titleColor" red="0.94901960780000005" green="0.88235294119999996" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="torchToggle:" destination="be9-hb-VFm" eventType="touchUpInside" id="lnf-FM-E9P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.22745098039215686" green="0.27450980392156865" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="Ofb-rf-ZL0" userLabel="Adjust Bar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanned QR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BZ6-9b-bhz">
+                                        <rect key="frame" x="10" y="26" width="300" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="21"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IbI-4e-iMg">
+                                        <rect key="frame" x="230" y="20" width="80" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.92941176469999998" green="0.90196078430000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissView:" destination="be9-hb-VFm" eventType="touchUpInside" id="S2y-Tj-Tbb"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar_logo" id="YYA-0o-JyP">
+                                        <rect key="frame" x="146" y="24" width="28" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.19215686274509802" green="0.20392156862745098" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="0bM-kD-8bb" appends="YES" id="udQ-za-up0"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="cameraViewController" destination="Svp-jx-SS3" id="1eO-h0-SPO"/>
+                        <outlet property="focusIndicator" destination="yVg-BW-eJ1" id="k0f-Jp-fft"/>
+                        <outlet property="scannedQRLabel" destination="BZ6-9b-bhz" id="Ztq-Wi-b8h"/>
+                        <segue destination="ZPf-Jt-bX6" kind="modal" identifier="presentImageCorrectionView" id="sJU-LB-Inu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pxg-no-yKb" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0bM-kD-8bb">
+                    <connections>
+                        <action selector="focusGesture:" destination="be9-hb-VFm" id="p72-d8-8UT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="629" y="254"/>
+        </scene>
+        <!--Image Correction View Controller-->
+        <scene sceneID="sO8-6x-0cI">
+            <objects>
+                <viewController id="ZPf-Jt-bX6" customClass="ImageCorrectionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MsT-cz-wqN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="0R7-Tl-3nb" userLabel="Adjust Bar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qdd-ci-D5n">
+                                        <rect key="frame" x="229.99999970197678" y="20" width="80" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.92941176469999998" green="0.90196078430000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeTapped:" destination="ZPf-Jt-bX6" eventType="touchUpInside" id="koc-CX-t7L"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar_logo" id="fxk-tF-wQV">
+                                        <rect key="frame" x="146" y="24" width="28" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1450980392" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="Juj-rE-Qdx" userLabel="Adjust Bar">
+                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6xq-Co-RPE">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="-10" minY="50" maxX="20" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="30" minY="0.0" maxX="14" maxY="20"/>
+                                        <state key="normal" title="CROP" image="btn_crop" backgroundImage="btn_add_notes_bg">
+                                            <color key="titleColor" red="0.87843137250000003" green="0.80784313730000001" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted" title="CROP" image="btn_crop_hover" backgroundImage="btn_add_notes_bg_hover">
+                                            <color key="titleColor" red="0.85882352941176465" green="0.80000000000000004" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="crop:" destination="ZPf-Jt-bX6" eventType="touchUpInside" id="evG-Qz-qII"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fXA-B0-cqt">
+                                        <rect key="frame" x="220" y="0.0" width="100" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="-20" minY="50" maxX="20" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="24" minY="0.0" maxX="-10" maxY="20"/>
+                                        <state key="normal" title="DONE" image="btn_done" backgroundImage="btn_add_notes_bg">
+                                            <color key="titleColor" red="0.87843137250000003" green="0.80784313730000001" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted" title="DONE" image="btn_done_hover" backgroundImage="btn_add_notes_bg_hover">
+                                            <color key="titleColor" red="0.45098039215686275" green="0.77647058823529413" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="useImage:" destination="ZPf-Jt-bX6" eventType="touchUpInside" id="B0j-fz-cgM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fo8-UQ-GMr">
+                                        <rect key="frame" x="100" y="0.0" width="120" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="-20" minY="50" maxX="10" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="12" maxY="20"/>
+                                        <state key="normal" title="ORIGINAL" image="btn_trash" backgroundImage="btn_add_notes_bg">
+                                            <color key="titleColor" red="0.92941176469999998" green="0.90196078430000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted" title="ORIGINAL" image="btn_trash_hover" backgroundImage="btn_add_notes_bg_hover"/>
+                                        <connections>
+                                            <action selector="loadOriginal:" destination="ZPf-Jt-bX6" eventType="touchUpInside" id="y5k-1Y-yRj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2274509804" green="0.27450980390000002" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="capture_image" id="m1s-jh-jWF">
+                                <rect key="frame" x="10" y="65" width="299.99999970197678" height="400"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1843137255" green="0.20000000000000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="m1s-jh-jWF" id="gtR-wM-Adg"/>
+                        <outlet property="originalBtn" destination="fo8-UQ-GMr" id="OPJ-21-WLi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6yH-t4-jYN" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="228"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_add_notes" width="35" height="42"/>
+        <image name="btn_add_notes_bg" width="20" height="20"/>
+        <image name="btn_add_notes_bg_hover" width="20" height="20"/>
+        <image name="btn_add_notes_hover" width="35" height="42"/>
+        <image name="btn_camera_flash" width="28" height="41"/>
+        <image name="btn_camera_flash_hover" width="28" height="41"/>
+        <image name="btn_camera_origin" width="39" height="41"/>
+        <image name="btn_camera_origin_hover" width="39" height="41"/>
+        <image name="btn_camera_refine" width="38" height="48"/>
+        <image name="btn_camera_refine_hover" width="37" height="47"/>
+        <image name="btn_capture" width="79" height="79"/>
+        <image name="btn_capture_hover" width="79" height="79"/>
+        <image name="btn_crop" width="34" height="38"/>
+        <image name="btn_crop_hover" width="34" height="38"/>
+        <image name="btn_done" width="45" height="34"/>
+        <image name="btn_done_hover" width="45" height="34"/>
+        <image name="btn_save" width="44" height="37"/>
+        <image name="btn_save_hover" width="44" height="37"/>
+        <image name="btn_trash" width="30" height="38"/>
+        <image name="btn_trash_hover" width="30" height="38"/>
+        <image name="capture_image" width="66" height="66"/>
+        <image name="focus_indicator" width="75" height="75"/>
+        <image name="input_bg" width="300" height="40"/>
+        <image name="navbar_logo" width="29" height="33"/>
+    </resources>
+</document>
