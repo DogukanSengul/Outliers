@@ -153,16 +153,20 @@
 
 - (void)didCaptureString:(NSString *)string {
     self.scannedQRLabel.text = string;
+    self.qrImageView.hidden = NO;
 }
 
 - (void)dismissPreview:(UITapGestureRecognizer *)dismissTap {
+    [self.cameraViewController addMetaDataOutput];
     [self.cameraViewController start];
-    
+
     [UIView animateWithDuration:0.7 delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:1.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.imagePreviewView.frame = CGRectOffset(self.view.bounds, 0, self.view.bounds.size.height);
     }
                      completion:^(BOOL finished) {
                          [self.imagePreviewView removeFromSuperview];
+                         [self.qrImageView setHidden:YES];
+                         self.scannedQRLabel.text = @"Page #";
                      }];
 }
 
@@ -174,8 +178,8 @@
 
 - (void)useImage:(id)sender {
     Page *page = (Page *)[DatabaseHelper insertNewEntityWithName:@"Page" andContext:self.moc];
-    if (![self.scannedQRLabel.text isEqualToString:@"Page #"]) {
-        page.pageNumber = @([self.scannedQRLabel.text intValue]);
+    if (!self.qrImageView.hidden) {
+        page.pageNumber = self.scannedQRLabel.text;
     }
 
     page.notebook = self.notebook;
@@ -205,8 +209,8 @@
 
 - (void)didSaveImage:(UIImage *)savedImage {
     Page *page = (Page *)[DatabaseHelper insertNewEntityWithName:@"Page" andContext:self.moc];
-    if (![self.scannedQRLabel.text isEqualToString:@"Page #"]) {
-        page.pageNumber = @([self.scannedQRLabel.text intValue]);
+    if (!self.qrImageView.hidden) {
+        page.pageNumber = self.scannedQRLabel.text;
     }
     
     NSString *imageName = [[NSUUID UUID] UUIDString];

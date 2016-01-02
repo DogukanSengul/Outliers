@@ -15,6 +15,7 @@
 #import "CameraViewController.h"
 #import "PageSelectionInfo.h"
 #import "AppDelegate.h"
+#import "DataBaseHelper.h"
 
 #define PADDING                  10
 

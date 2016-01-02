@@ -116,11 +116,7 @@
     [dataOutput setSampleBufferDelegate:self queue:_captureQueue];
     [session addOutput:dataOutput];
     
-    AVCaptureMetadataOutput *metaDataoutput = [[AVCaptureMetadataOutput alloc] init];
-    [metaDataoutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-    [session addOutput:metaDataoutput];
-    
-    metaDataoutput.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+    [self addMetaDataOutput];
     
     self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
     [session addOutput:self.stillImageOutput];
@@ -143,6 +139,21 @@
     }
     
     [session commitConfiguration];
+}
+
+- (void)addMetaDataOutput{
+    
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"self isKindOfClass: %@",
+                          [AVCaptureMetadataOutput class]];
+    NSArray *filtered = [self.captureSession.outputs filteredArrayUsingPredicate:p];
+
+    if (filtered.count == 0) {
+        AVCaptureMetadataOutput *metaDataoutput = [[AVCaptureMetadataOutput alloc] init];
+        [metaDataoutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+        [self.captureSession addOutput:metaDataoutput];
+        
+        metaDataoutput.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+    }
 }
 
 - (void)setCameraViewType:(IPDFCameraViewType)cameraViewType

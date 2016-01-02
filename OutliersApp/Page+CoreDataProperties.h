@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Page (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *pageImagePath;
-@property (nullable, nonatomic, retain) NSNumber *pageNumber;
+@property (nullable, nonatomic, retain) NSString *pageNumber;
 @property (nullable, nonatomic, retain) NSString *pageThumbImagePath;
 @property (nullable, nonatomic, retain) Notebook *notebook;
 

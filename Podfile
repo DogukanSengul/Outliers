@@ -5,3 +5,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 pod "MBProgressHUD"
 pod "DACircularProgress"
 pod "SDWebImage"
+pod 'Fabric'
+pod 'Crashlytics'

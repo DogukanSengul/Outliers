@@ -24,6 +24,8 @@
                                andSortKey:(NSString*)sortKey andSortAscending:(BOOL)sortAscending
                                andContext:(NSManagedObjectContext *)managedObjectContext;
 + (BOOL)deleteAllObjectsForEntity:(NSString*)entityName andContext:(NSManagedObjectContext *)managedObjectContext;
++ (void)deleteObject:(NSManagedObject *)object context:(NSManagedObjectContext *)managedObjectContext;
+
 + (NSUInteger)countForEntity:(NSString *)entityName andContext:(NSManagedObjectContext *)managedObjectContext;
 + (NSUInteger)countForEntity:(NSString *)entityName withPredicate:(NSPredicate *)predicate
                  andContext:(NSManagedObjectContext *)managedObjectContext;

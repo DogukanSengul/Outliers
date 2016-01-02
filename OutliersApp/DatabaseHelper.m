@@ -111,6 +111,11 @@
 	return YES;
 }
 
++ (void)deleteObject:(NSManagedObject *)object context:(NSManagedObjectContext *)managedObjectContext{
+    [managedObjectContext deleteObject:object];
+    [DatabaseHelper saveCoreData:managedObjectContext];
+}
+
 #pragma mark - Get Highest Value
 
 // Fetch objects with a predicate

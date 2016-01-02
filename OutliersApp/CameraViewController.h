@@ -20,6 +20,7 @@
 
 @property (weak, nonatomic) id<CameraViewControllerDelegate> delegate;
 @property (nonatomic, strong) Notebook *notebook;
+@property (weak, nonatomic) IBOutlet UIImageView *qrImageView;
 
 - (void)dismissPreview:(UITapGestureRecognizer *)dismissTap;
 

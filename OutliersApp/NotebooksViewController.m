@@ -24,7 +24,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSManagedObjectContext *moc;
-@property (nonatomic, strong) NSArray *notebooks;
+@property (nonatomic, strong) NSMutableArray *notebooks;
 @property (nonatomic, strong) MWPhotoBrowser *browser;
 
 @end
@@ -39,7 +39,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.notebooks = [DatabaseHelper getObjectsForEntity:@"Notebook" withSortKey:@"name" andSortAscending:YES andContext:self.moc];
+    self.notebooks = [NSMutableArray arrayWithArray:[DatabaseHelper getObjectsForEntity:@"Notebook" withSortKey:@"name" andSortAscending:YES andContext:self.moc]];
     [self.tableView reloadData];
     [self setNavigationAppearece:YES];
 }
@@ -76,6 +76,22 @@
     cell.notebookNameLbl.text = [(Notebook *)self.notebooks[indexPath.row] name];
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        Notebook *notebook = [self.notebooks objectAtIndex:indexPath.row];
+        [DatabaseHelper deleteObject:notebook context:self.moc];
+        [self.notebooks removeObjectAtIndex:indexPath.row];
+        [self.tableView reloadData];
+        
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -183,7 +199,10 @@
     NSMutableArray *photos = [[NSMutableArray alloc] init];
     NSMutableArray *thumbs = [[NSMutableArray alloc] init];
     
-    for (Page *page in notebook.pages) {
+    NSSortDescriptor *nameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:YES];
+    NSArray *sorted = [notebook.pages sortedArrayUsingDescriptors:[NSArray arrayWithObject:nameDescriptor]];
+        
+    for (Page *page in sorted) {
         [photos addObject:[MWPhoto photoWithURL:[NSURL fileURLWithPath:[[ImageHelper getImagesDirectory] stringByAppendingPathComponent:page.pageImagePath]]]];
         [thumbs addObject:[MWPhoto photoWithURL:[NSURL fileURLWithPath:[[ImageHelper getImagesDirectory] stringByAppendingPathComponent:page.pageThumbImagePath]]]];
     }
