@@ -48,6 +48,29 @@
     return nil;
 }
 
++ (UIImage *)image:(UIImage *)scannedImage PageNumber:(NSString *)pageNumber{
+    CGFloat scale = [UIScreen mainScreen].scale;
+    UIImage *image = nil;
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scannedImage.size.width,scannedImage.size.height)];
+    [view setBackgroundColor:[UIColor colorWithPatternImage:scannedImage]];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, view.frame.size.height / 30.0, view.frame.size.width - view.frame.size.height / 30.0, view.frame.size.height / 20.0)];
+    [label setTextColor:[UIColor blackColor]];
+    [label setFont:[UIFont boldSystemFontOfSize:view.frame.size.height / 25.0]];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setText:pageNumber];
+    [label setTextAlignment:NSTextAlignmentRight];
+    [view addSubview:label];
+    
+    //Optimized/fast method for rendering a UIView as image on iOS 7 and later versions.
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, scale);
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 + (NSString *)saveImageToDirectory:(UIImage *)image withName:(NSString *)imageName {
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     

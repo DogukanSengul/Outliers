@@ -50,6 +50,8 @@
 		E34788C31C2AD55E0042996B /* PageSelectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E34788C21C2AD55E0042996B /* PageSelectionInfo.m */; };
 		E3D158E81C33BC80006ABEF0 /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D158E71C33BC80006ABEF0 /* Gotham-Book.otf */; };
 		E3D158EB1C33C0D9006ABEF0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D158EA1C33C0D9006ABEF0 /* BaseViewController.m */; };
+		E3D6E8071C3C3EB000A72705 /* CenteredButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D6E8061C3C3EB000A72705 /* CenteredButton.m */; };
+		E3D6E80B1C3C61B300A72705 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D6E80A1C3C61B300A72705 /* NSString+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,10 @@
 		E3D158E71C33BC80006ABEF0 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
 		E3D158E91C33C0D9006ABEF0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		E3D158EA1C33C0D9006ABEF0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		E3D6E8051C3C3EB000A72705 /* CenteredButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenteredButton.h; sourceTree = "<group>"; };
+		E3D6E8061C3C3EB000A72705 /* CenteredButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenteredButton.m; sourceTree = "<group>"; };
+		E3D6E8091C3C61B300A72705 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		E3D6E80A1C3C61B300A72705 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +237,8 @@
 				5461E5A21BD1809F0067F4B0 /* ImagePreviewView.h */,
 				5461E5A31BD1809F0067F4B0 /* ImagePreviewView.m */,
 				5461E5A51BD180C70067F4B0 /* ImagePreviewView.xib */,
+				E3D6E8051C3C3EB000A72705 /* CenteredButton.h */,
+				E3D6E8061C3C3EB000A72705 /* CenteredButton.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 		54FCD0A01BC198BB00D9ACC6 /* OutliersApp */ = {
 			isa = PBXGroup;
 			children = (
+				E3D6E8081C3C619800A72705 /* Category */,
 				E34788C41C2AD5640042996B /* Infos */,
 				54C850D21C14882900BE411D /* MWPhotoBrowser */,
 				54C850CE1C0F19C000BE411D /* Helpers */,
@@ -401,6 +410,15 @@
 				E3D158E71C33BC80006ABEF0 /* Gotham-Book.otf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		E3D6E8081C3C619800A72705 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E3D6E8091C3C61B300A72705 /* NSString+Utils.h */,
+				E3D6E80A1C3C61B300A72705 /* NSString+Utils.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -572,6 +590,7 @@
 				54C850EA1C14882900BE411D /* MWGridViewController.m in Sources */,
 				54FCD0A61BC198BB00D9ACC6 /* AppDelegate.m in Sources */,
 				54027F641BEF641A00E0C427 /* Notebook+CoreDataProperties.m in Sources */,
+				E3D6E8071C3C3EB000A72705 /* CenteredButton.m in Sources */,
 				54C850EC1C14882900BE411D /* MWPhotoBrowser.m in Sources */,
 				54027F551BE8CC6600E0C427 /* CameraViewController.m in Sources */,
 				54027F3D1BE6664700E0C427 /* NotebooksViewController.m in Sources */,
@@ -586,6 +605,7 @@
 				5461E5A41BD1809F0067F4B0 /* ImagePreviewView.m in Sources */,
 				54027F431BE6702800E0C427 /* PagesViewController.m in Sources */,
 				54C850E91C14882900BE411D /* MWGridCell.m in Sources */,
+				E3D6E80B1C3C61B300A72705 /* NSString+Utils.m in Sources */,
 				54C850EE1C14882900BE411D /* MWTapDetectingView.m in Sources */,
 				54027F511BE8C7A100E0C427 /* UIImageView+ContentFrame.m in Sources */,
 				54027F651BEF641A00E0C427 /* Notebook.m in Sources */,

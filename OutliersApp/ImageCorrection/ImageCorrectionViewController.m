@@ -21,6 +21,7 @@ UIViewAutoresizingFlexibleTopMargin
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIButton *originalBtn;
 @property (nonatomic, weak) IBOutlet UIButton *cropBtn;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 @property (nonatomic, strong) BrnDrawRect *adjustRect;
 @property (nonatomic, assign) CGFloat scaleRatio;
 @property (nonatomic, assign) CGFloat scaleFactor;
@@ -49,6 +50,7 @@ UIViewAutoresizingFlexibleTopMargin
 
 - (void)initCropView {
     [self.originalBtn setEnabled:NO];
+    [self.saveBtn setEnabled:NO];
     
     self.adjustRect = [[BrnDrawRect alloc] initWithFrame:self.imageView.frame];
     self.adjustRect.autoresizingMask = UIViewAutoresizingFlexibleMargins;
@@ -193,6 +195,7 @@ UIViewAutoresizingFlexibleTopMargin
     [self.adjustRect removeFromSuperview];
     
     [self.originalBtn setEnabled:YES];
+    [self.saveBtn setEnabled:YES];
 }
 
 - (IBAction)loadOriginal:(id)sender {

@@ -33,10 +33,10 @@
                     <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="-17" minY="50" maxX="20" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="25"/>
-                    <state key="normal" title="IMAGE" image="btn_image" backgroundImage="btn_add_notes_bg">
+                    <state key="normal" title="EDIT" image="btn_image" backgroundImage="btn_add_notes_bg">
                         <color key="titleColor" red="0.92941176469999998" green="0.90196078430000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <state key="highlighted" title="IMAGE" image="btn_image_hover" backgroundImage="btn_add_notes_bg_hover">
+                    <state key="highlighted" title="EDIT" image="btn_image_hover" backgroundImage="btn_add_notes_bg_hover">
                         <color key="titleColor" red="0.45098039215686275" green="0.59215686274509804" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
@@ -44,12 +44,12 @@
                     <rect key="frame" x="200" y="376" width="100" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
-                    <inset key="titleEdgeInsets" minX="-20" minY="50" maxX="25" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="25" minY="0.0" maxX="10" maxY="30"/>
-                    <state key="normal" title="USE" image="btn_done" backgroundImage="btn_add_notes_bg">
+                    <inset key="titleEdgeInsets" minX="-25" minY="50" maxX="25" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="10" maxY="30"/>
+                    <state key="normal" title="SAVE" image="btn_done" backgroundImage="btn_add_notes_bg">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="highlighted" title="USE" image="btn_done_hover" backgroundImage="btn_add_notes_bg_hover">
+                    <state key="highlighted" title="SAVE" image="btn_done_hover" backgroundImage="btn_add_notes_bg_hover">
                         <color key="titleColor" red="0.45098039220000002" green="0.77647058820000003" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>

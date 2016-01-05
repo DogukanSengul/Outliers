@@ -24,6 +24,7 @@
     navBar.barTintColor = [UIColor colorWithRed:34/255.0 green:37/255.0 blue:46/255.0 alpha:1.0];
     navBar.translucent = translucent;
     [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+
     
     UIImage* logoImage = [UIImage imageNamed:@"navbar_logo"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logoImage];

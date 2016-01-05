@@ -15,6 +15,7 @@
 #import "Page+CoreDataProperties.h"
 #import "Page.h"
 #import "ImageHelper.h"
+#import "NSString+Utils.h"
 
 @interface CameraViewController () <IPDFCameraViewDelegate, ImageCorrectionViewControllerDelegate>
 
@@ -44,7 +45,7 @@
     
     [self.cameraViewController setupCameraView];
     [self.cameraViewController setEnableBorderDetection:YES];
-    
+    [self.cameraViewController setCameraViewType:IPDFCameraViewTypeNormal];
     self.cameraViewController.delegate = self;
 }
 
@@ -178,12 +179,22 @@
 
 - (void)useImage:(id)sender {
     Page *page = (Page *)[DatabaseHelper insertNewEntityWithName:@"Page" andContext:self.moc];
+    NSString *pageNumber = @"";
     if (!self.qrImageView.hidden) {
-        page.pageNumber = self.scannedQRLabel.text;
+        if ([self.scannedQRLabel.text isANumber]) {
+            page.pageNumber = [NSString stringWithFormat:@"V%@",self.scannedQRLabel.text];
+        }else{
+            page.pageNumber = self.scannedQRLabel.text;
+        }
+        pageNumber = self.scannedQRLabel.text;
+    }else{
+        page.pageNumber = [NSString stringWithFormat:@"Z%i",(int)self.notebook.pages.count];
     }
 
     page.notebook = self.notebook;
     NSString *imageName = [[NSUUID UUID] UUIDString];
+    
+    self.scannedImage = [ImageHelper image:self.scannedImage PageNumber:pageNumber];
     
     page.pageImagePath = [ImageHelper saveImageToDirectory:self.scannedImage withName:imageName];
     page.pageThumbImagePath = [ImageHelper saveImageThumbToDirectory:self.scannedImage withName:imageName];
@@ -209,12 +220,22 @@
 
 - (void)didSaveImage:(UIImage *)savedImage {
     Page *page = (Page *)[DatabaseHelper insertNewEntityWithName:@"Page" andContext:self.moc];
+    NSString *pageNumber = @"";
     if (!self.qrImageView.hidden) {
-        page.pageNumber = self.scannedQRLabel.text;
+        if ([self.scannedQRLabel.text isANumber]) {
+            page.pageNumber = [NSString stringWithFormat:@"V%@",self.scannedQRLabel.text];
+        }else{
+            page.pageNumber = self.scannedQRLabel.text;
+        }
+        pageNumber = self.scannedQRLabel.text;
+    }else{
+        page.pageNumber = [NSString stringWithFormat:@"Z%i",(int)self.notebook.pages.count];
     }
     
     NSString *imageName = [[NSUUID UUID] UUIDString];
     
+    self.scannedImage = [ImageHelper image:self.scannedImage PageNumber:pageNumber];
+
     page.pageImagePath = [ImageHelper saveImageToDirectory:savedImage withName:imageName];
     page.pageThumbImagePath = [ImageHelper saveImageThumbToDirectory:savedImage withName:imageName];
 

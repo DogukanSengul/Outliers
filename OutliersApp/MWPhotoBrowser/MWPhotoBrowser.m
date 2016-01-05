@@ -16,13 +16,16 @@
 #import "PageSelectionInfo.h"
 #import "AppDelegate.h"
 #import "DataBaseHelper.h"
+#import "ImageHelper.h"
 
 #define PADDING                  10
+#define DeleteTag 1258
 
 @interface MWPhotoBrowser()
 
 @property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, strong) UIButton *deleteButton;
+@property (nonatomic, strong) UIButton *shareButton;
 @property (nonatomic, strong) UIBarButtonItem *editBarButtonItem;
 
 @end
@@ -244,29 +247,45 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     } else {
         // We're not first so show back button
         UIViewController *previousViewController = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
-        NSString *backButtonTitle = previousViewController.navigationItem.backBarButtonItem ? previousViewController.navigationItem.backBarButtonItem.title : previousViewController.title;
+        //NSString *backButtonTitle = previousViewController.navigationItem.backBarButtonItem ? previousViewController.navigationItem.backBarButtonItem.title : previousViewController.title;
         
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backButton setFrame:CGRectMake(0,20,70,40)];
+        backButton.userInteractionEnabled = YES;
+        [backButton setBackgroundColor:[UIColor clearColor]];
+        [backButton setTitle:@"Back" forState:UIControlStateNormal];
+        [backButton setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
+        [backButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        [backButton setContentEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
         
-        // Appearance
-        [newBackButton setBackButtonBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [newBackButton setBackButtonBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
-        [newBackButton setBackButtonBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-        [newBackButton setBackButtonBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
-        [newBackButton setBackgroundImage:[UIImage imageNamed:@"btn_back"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [newBackButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                               [UIColor colorWithRed:58/255.0
-                                                               green:70/255.0
-                                                                blue:90/255.0
-                                                               alpha:1.0], NSForegroundColorAttributeName,nil] forState:UIControlStateNormal];
-        [newBackButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateHighlighted];
+        [backButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [backButton setImage:[UIImage imageNamed:@"btn_back"] forState:UIControlStateNormal];
+        [backButton setImage:[UIImage imageNamed:@"btn_back"] forState:UIControlStateHighlighted];
+        
+        [backButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 4, 0, 0)];
+        [backButton setTitleColor:[UIColor colorWithRed:237/255.0
+                                                 green:230/255.0
+                                                  blue:218/255.0
+                                                  alpha:1.0] forState:UIControlStateNormal];
+        [backButton setTitleColor:[UIColor colorWithRed:237/255.0
+                                                  green:230/255.0
+                                                   blue:218/255.0
+                                                  alpha:1.0] forState:UIControlStateHighlighted];
+        
+        [backButton.titleLabel setFont:[UIFont fontWithName:@"Gotham" size:16.0]];
+        
+        // ASSIGNING THE BUTTON WITH IMAGE TO BACK BAR BUTTON
+        
+        UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        self.navigationItem.leftBarButtonItem = backBarButton;
+        
         
         _previousViewControllerBackButton = previousViewController.navigationItem.backBarButtonItem; // remember previous
-        previousViewController.navigationItem.backBarButtonItem = newBackButton;
+        //previousViewController.navigationItem.backBarButtonItem = newBackButton;
         
-        self.editBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", nil) style:UIBarButtonItemStylePlain target:self action:@selector(edit)];
+        self.editBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Select", nil) style:UIBarButtonItemStylePlain target:self action:@selector(edit)];
         self.navigationItem.rightBarButtonItem = self.editBarButtonItem ;
-    
+
         [self setNavigationAppearece:YES];
         
         if (!self.addButton) {
@@ -290,9 +309,21 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             self.deleteButton.layer.cornerRadius = self.addButton.frame.size.width / 2.0;
             [self.deleteButton setImage:[UIImage imageNamed:@"trash"] forState:UIControlStateNormal];
             [self.deleteButton setImageEdgeInsets:UIEdgeInsetsMake(20, 20, 20, 20)];
-            [self.deleteButton addTarget:self action:@selector(delete) forControlEvents:UIControlEventTouchUpInside];
+            [self.deleteButton addTarget:self action:@selector(askForDelete) forControlEvents:UIControlEventTouchUpInside];
             [self.deleteButton setHidden:YES];
             [self.view addSubview:self.deleteButton];
+            
+            CGRect rect = self.deleteButton.frame;
+            rect.origin.x -= (rect.size.width + 10);
+            self.shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [self.shareButton setFrame:rect];
+            self.shareButton.backgroundColor = [UIColor colorWithRed:33/255.0 green:36/255.0 blue:44/255.0 alpha:1.0];
+            self.shareButton.layer.cornerRadius = self.shareButton.frame.size.width / 2.0;
+            [self.shareButton setImage:[UIImage imageNamed:@"btn_share"] forState:UIControlStateNormal];
+            [self.shareButton setImageEdgeInsets:UIEdgeInsetsMake(20, 20, 20, 20)];
+            [self.shareButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+            [self.shareButton setHidden:YES];
+            [self.view addSubview:self.shareButton];
         }
     }
 
@@ -506,6 +537,12 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     //navBar.barStyle = UIBarStyleBlackTranslucent;
     [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    [UINavigationBar appearance].backIndicatorImage = [UIImage imageNamed:@"btn_back"];
+    [UINavigationBar appearance].backIndicatorTransitionMaskImage = [UIImage imageNamed:@"btn_back"];
+    
+    //navBar.backIndicatorImage = [UIImage imageNamed:@"btn_back"];
+    //navBar.backIndicatorTransitionMaskImage = [UIImage imageNamed:@"btn_back"];
 }
 
 - (void)storePreviousNavBarAppearance {
@@ -1200,8 +1237,37 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     [self jumpToPageAtIndex:_currentPageIndex+1 animated:animated];
 }
 
+- (void)share{
+    NSMutableArray *images = [NSMutableArray array];
+    for (int i = 0; i < self.selectionPages.count; i++) {
+        PageSelectionInfo *pageSelectionInfo = [self.selectionPages objectAtIndex:i];
+        if (pageSelectionInfo.selected) {
+            [images addObject:[UIImage imageWithContentsOfFile:[[ImageHelper getImagesDirectory] stringByAppendingPathComponent:pageSelectionInfo.page.pageThumbImagePath]]];
+
+        }
+    }
+    
+    if (images.count > 0) {
+        UIActivityViewController * activityVC = [[UIActivityViewController alloc] initWithActivityItems:images applicationActivities:NULL];
+        
+        [activityVC setCompletionHandler:^(NSString *activityType, BOOL completed) {
+            //NSLog(@"completed dialog - activity: %@ - finished flag: %d", activityType, completed);
+        }];
+        [self presentViewController:activityVC animated:TRUE completion:nil];
+    }
+}
+
+- (void)askForDelete{
+    NSArray *array = [self.selectionPages filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"selected == true"]];
+    
+    if (array.count > 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Are you sure?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        alertView.tag = DeleteTag;
+        [alertView show];
+    }
+}
+
 - (void)delete{
-    NSLog(@"deleteeeee");
     NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.notebook.pages];
     
     for (int i = 0; i < self.selectionPages.count; i++) {
@@ -1225,11 +1291,12 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
 - (void)edit{
     if (_gridController.selectionMode) {
-        self.editBarButtonItem.title = NSLocalizedString(@"Edit", nil);
+        self.editBarButtonItem.title = NSLocalizedString(@"Select", nil);
     }else{
         self.editBarButtonItem.title = NSLocalizedString(@"Cancel", nil);
     }
     
+    [self.shareButton setHidden:_gridController.selectionMode];
     [self.deleteButton setHidden:_gridController.selectionMode];
     [self.addButton setHidden:!_gridController.selectionMode];
     self.displayActionButton = !self.displayActionButton;
@@ -1245,6 +1312,14 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     cameraViewController.delegate = self;
     cameraViewController.notebook = self.notebook;
     [self presentViewController:cameraViewController animated:YES completion:nil];
+}
+
+#pragma mark AlertView
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == DeleteTag && buttonIndex == 1) {
+        [self delete];
+    }
 }
 
 #pragma mark - Interactions
@@ -1406,6 +1481,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     [self.view addSubview:_gridController.view];
     [self.view bringSubviewToFront:self.addButton];
     [self.view bringSubviewToFront:self.deleteButton];
+    [self.view bringSubviewToFront:self.shareButton];
 
     // Perform any adjustments
     [_gridController.view layoutIfNeeded];

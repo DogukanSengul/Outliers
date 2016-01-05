@@ -43,7 +43,7 @@
 
 @end
 
-@interface MWPhotoBrowser : BaseViewController <UIScrollViewDelegate, UIActionSheetDelegate, CameraViewControllerDelegate>
+@interface MWPhotoBrowser : BaseViewController <UIScrollViewDelegate, UIActionSheetDelegate, CameraViewControllerDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, weak) IBOutlet id<MWPhotoBrowserDelegate> delegate;
 @property (nonatomic) BOOL zoomPhotosToFill;

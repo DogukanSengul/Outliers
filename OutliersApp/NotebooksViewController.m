@@ -36,6 +36,8 @@
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.moc = appDelegate.managedObjectContext;
+    
+    [self.addNoteBookButton centerAlignment];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

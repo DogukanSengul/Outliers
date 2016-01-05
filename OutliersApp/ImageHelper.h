@@ -16,5 +16,6 @@
 + (NSString *)saveImageToDirectory:(UIImage *)image withName:(NSString *)imageName;
 + (NSString *)saveImageThumbToDirectory:(UIImage *)image withName:(NSString *)imageName;
 + (UIImage *)getImageAtFilePath:(NSString *)fileName;
++ (UIImage *)image:(UIImage *)scannedImage PageNumber:(NSString *)pageNumber;
 
 @end
