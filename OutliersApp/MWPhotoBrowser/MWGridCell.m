@@ -70,6 +70,13 @@
         _loadingIndicator.roundedCorners = NO;
 		[self addSubview:_loadingIndicator];
         
+        _pageNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 40, self.frame.size.width - 6, 40)];
+        [_pageNumberLabel setTextAlignment:NSTextAlignmentRight];
+        [_pageNumberLabel setText:@""];
+        [_pageNumberLabel setFont:[UIFont boldSystemFontOfSize:24]];
+        [_pageNumberLabel setTextColor:[UIColor whiteColor]];
+        [self addSubview:_pageNumberLabel];
+        
         // Listen for photo loading notifications
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(setProgressFromNotification:)

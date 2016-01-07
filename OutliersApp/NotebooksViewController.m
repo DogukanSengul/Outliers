@@ -6,6 +6,8 @@
 //  Copyright © 2015 brn. All rights reserved.
 //
 
+#define DeleteTag 1258
+
 #import "NotebooksViewController.h"
 #import "AppDelegate.h"
 #import "NotebookTableViewCell.h"
@@ -26,6 +28,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *moc;
 @property (nonatomic, strong) NSMutableArray *notebooks;
 @property (nonatomic, strong) MWPhotoBrowser *browser;
+@property (nonatomic, strong) NSIndexPath *willDeleteIndexPath;
 
 @end
 
@@ -88,11 +91,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //add code here for when you hit delete
-        Notebook *notebook = [self.notebooks objectAtIndex:indexPath.row];
-        [DatabaseHelper deleteObject:notebook context:self.moc];
-        [self.notebooks removeObjectAtIndex:indexPath.row];
-        [self.tableView reloadData];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Are you sure?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        alertView.tag = DeleteTag;
+        [alertView show];
         
+        self.willDeleteIndexPath = indexPath;
     }
 }
 
@@ -124,6 +127,24 @@
     [self.navigationController pushViewController:self.browser animated:YES];
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark AlertView
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == DeleteTag) {
+        if (buttonIndex == 1) {
+            if (self.willDeleteIndexPath) {
+                Notebook *notebook = [self.notebooks objectAtIndex:self.willDeleteIndexPath.row];
+                [DatabaseHelper deleteObject:notebook context:self.moc];
+                [self.notebooks removeObjectAtIndex:self.willDeleteIndexPath.row];
+                [self.tableView reloadData];
+            }
+        }
+        
+        self.willDeleteIndexPath = nil;
+    
+    }
 }
 
 #pragma mark - MWPhotoBrowserDelegate
@@ -203,7 +224,7 @@
     
     NSSortDescriptor *nameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:YES];
     NSArray *sorted = [notebook.pages sortedArrayUsingDescriptors:[NSArray arrayWithObject:nameDescriptor]];
-        
+    
     for (Page *page in sorted) {
         [photos addObject:[MWPhoto photoWithURL:[NSURL fileURLWithPath:[[ImageHelper getImagesDirectory] stringByAppendingPathComponent:page.pageImagePath]]]];
         [thumbs addObject:[MWPhoto photoWithURL:[NSURL fileURLWithPath:[[ImageHelper getImagesDirectory] stringByAppendingPathComponent:page.pageThumbImagePath]]]];

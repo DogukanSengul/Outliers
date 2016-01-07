@@ -10,6 +10,7 @@
 #import "MWGridCell.h"
 #import "MWPhotoBrowserPrivate.h"
 #import "MWCommon.h"
+#import "Page.h"
 
 @interface MWGridViewController () {
     
@@ -17,6 +18,8 @@
     CGFloat _margin, _gutter, _marginL, _gutterL, _columns, _columnsL;
     
 }
+
+@property (nonatomic, strong) NSArray *sortedNotebookPages;
 
 @end
 
@@ -76,6 +79,10 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    
+    NSSortDescriptor *nameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:YES];
+    self.sortedNotebookPages = [self.browser.notebook.pages sortedArrayUsingDescriptors:[NSArray arrayWithObject:nameDescriptor]];
+    
     [self performLayout];
 }
 
@@ -162,6 +169,13 @@
     cell.selectionMode = _selectionMode;
     cell.isSelected = [_browser photoIsSelectedAtIndex:indexPath.row];
     cell.index = indexPath.row;
+    
+    Page *page = [self.sortedNotebookPages objectAtIndex:indexPath.row];
+    
+    NSString *pageNumber = [page.pageNumber stringByReplacingOccurrencesOfString:@"V" withString:@""];
+    pageNumber = [pageNumber stringByReplacingOccurrencesOfString:@"Z" withString:@"#"];
+    cell.pageNumberLabel.text = [NSString stringWithFormat:@"%@  ",pageNumber];
+    
     UIImage *img = [_browser imageForPhoto:photo];
     if (img) {
         [cell displayImage];

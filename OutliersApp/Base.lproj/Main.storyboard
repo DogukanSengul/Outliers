@@ -344,11 +344,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VvR-ce-x0f">
-                                        <rect key="frame" x="220" y="0.0" width="100" height="80"/>
+                                        <rect key="frame" x="210" y="0.0" width="110" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                         <inset key="titleEdgeInsets" minX="-30" minY="50" maxX="8" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="32" minY="0.0" maxX="-5" maxY="24"/>
+                                        <inset key="imageEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="24"/>
                                         <state key="normal" title="AUTOCROP" image="btn_camera_refine" backgroundImage="btn_add_notes_bg">
                                             <color key="titleColor" red="0.87843137250000003" green="0.80784313730000001" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -364,7 +364,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lQs-zr-zyx">
-                                        <rect key="frame" x="120" y="0.0" width="100" height="80"/>
+                                        <rect key="frame" x="110" y="0.0" width="100" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                         <inset key="titleEdgeInsets" minX="-30" minY="50" maxX="10" maxY="0.0"/>
@@ -381,11 +381,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CNc-Ds-U2d">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="80"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="50" maxX="30" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="44" minY="0.0" maxX="0.0" maxY="24"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="50" maxX="25" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="39" minY="0.0" maxX="0.0" maxY="24"/>
                                         <state key="normal" title="FLASH" image="btn_camera_flash" backgroundImage="btn_add_notes_bg">
                                             <color key="titleColor" red="0.8784313725490196" green="0.80784313725490198" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -536,7 +536,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.2274509804" green="0.27450980390000002" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="capture_image" id="m1s-jh-jWF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="m1s-jh-jWF">
                                 <rect key="frame" x="10" y="65" width="300" height="400"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -578,7 +578,6 @@
         <image name="btn_save_hover" width="44" height="37"/>
         <image name="btn_trash" width="30" height="38"/>
         <image name="btn_trash_hover" width="30" height="38"/>
-        <image name="capture_image" width="66" height="66"/>
         <image name="focus_indicator" width="75" height="75"/>
         <image name="icon_qr" width="45" height="42"/>
         <image name="input_bg" width="300" height="40"/>

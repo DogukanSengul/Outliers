@@ -250,6 +250,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         //NSString *backButtonTitle = previousViewController.navigationItem.backBarButtonItem ? previousViewController.navigationItem.backBarButtonItem.title : previousViewController.title;
         
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         [backButton setFrame:CGRectMake(0,20,70,40)];
         backButton.userInteractionEnabled = YES;
         [backButton setBackgroundColor:[UIColor clearColor]];
@@ -284,6 +285,22 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         //previousViewController.navigationItem.backBarButtonItem = newBackButton;
         
         self.editBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Select", nil) style:UIBarButtonItemStylePlain target:self action:@selector(edit)];
+        [self.editBarButtonItem setTitleTextAttributes:
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          [UIColor colorWithRed:237/255.0
+                          green:230/255.0
+                           blue:218/255.0
+                          alpha:1.0],  NSForegroundColorAttributeName,nil]
+                                              forState:UIControlStateNormal];
+
+        [self.editBarButtonItem setTitleTextAttributes:
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          [UIColor colorWithRed:237/255.0
+                          green:230/255.0
+                           blue:218/255.0
+                          alpha:1.0],  NSForegroundColorAttributeName,nil]
+                                              forState:UIControlStateHighlighted];
+        
         self.navigationItem.rightBarButtonItem = self.editBarButtonItem ;
 
         [self setNavigationAppearece:YES];
@@ -1737,6 +1754,10 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 
 #pragma mark - Actions
+
+- (void)back{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)actionButtonPressed:(id)sender {
 

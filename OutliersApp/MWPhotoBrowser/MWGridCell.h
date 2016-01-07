@@ -18,6 +18,9 @@
 @property (nonatomic) BOOL selectionMode;
 @property (nonatomic) BOOL isSelected;
 
+@property (nonatomic, strong) UILabel *pageNumberLabel;
+
+
 - (void)displayImage;
 - (void)selectionButtonPressed;
 
